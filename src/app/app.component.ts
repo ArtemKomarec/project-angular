@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
-import { Observable } from 'rxjs';
 import { IUser } from './iuser';
 import { UserService } from './user.service';
+
 
 @Component({
   selector: 'app-root',
@@ -10,12 +10,18 @@ import { UserService } from './user.service';
 })
 export class AppComponent {
   title = 'project';
-  token: Observable<IUser> | undefined;
+  token: string | undefined;
+  user: IUser = new IUser('', '');
 
   login(data: { name: string; password: string }) {
-    this.token = this.userService.login(data);
+    this.userService.login(data).subscribe(
+      x => { this.token = x?.access_token; }
+    );
+  }
+
+  getError() {
+    return this.userService.error;
   }
 
   constructor(private userService: UserService) { }
-  user: IUser = new IUser('', '');
 }
