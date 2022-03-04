@@ -2,12 +2,12 @@
     <form *ngIf="user">
         <label for="username">Username: </label>
         <input id="username" [(ngModel)]="user.name" placeholder="username" [ngModelOptions]="{ standalone: true }" >
-  
+
         <label for="password">Password: </label>
         <input id="password" [(ngModel)]="user.password" placeholder="password" [ngModelOptions]="{ standalone: true }" >
       <button (click)="login(user)">Search</button>
     </form>
-  
+
     <label  for="token">Token: </label>
     <div *ngIf="token">
       <textarea  id="token">{{token}}</textarea>
@@ -17,9 +17,9 @@
         <input id="login" [(ngModel)]="getToken" placeholder="token" [ngModelOptions]="{ standalone: true }" >
       <button  (click)="getUser(getToken)">Get user</button>
     </form>
-  
+
     <div>
-      Id: <div *ngIf="iuser"> {{iuser.userId}}</div>
+      test: <div *ngIf="iuser"> {{iuser.userId}}</div>
       Username: <div *ngIf="iuser"> {{iuser.name}}</div>
     </div>
   </div>
