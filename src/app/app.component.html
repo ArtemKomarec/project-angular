@@ -1,0 +1,9 @@
+<div class="wrapper">
+    <form *ngIf="user">
+        <label for="username">Username: </label>
+        <input id="username" [(ngModel)]="user.name" placeholder="username" [ngModelOptions]="{ standalone: true }" >
+
+        <label for="password">Password: </label>
+        <input id="password" [(ngModel)]="user.password" placeholder="password" [ngModelOptions]="{ standalone: true }" >
+      <button (click)="login(user)">Search</button>
+    </form>
